@@ -76,10 +76,12 @@ async function putMessageQue(raw) {
 				)
 	})
 
-	producer.send({
-		topic: 'bus8002',
-		messages:[ { value: JSON.stringify(vehicles) }]
-	})
+	if (vehicleCount > 0) {
+		producer.send({
+			topic: 'bus8002',
+			messages:[ { value: JSON.stringify(vehicles) }]
+		})
+	} 
 
 }
 
