@@ -14,7 +14,7 @@ const get_8002_bus_data = async (putMessageQue) => {
 
 	await producer.connect()
 
-	const browser = await pupeteer.launch({ headless: true })
+	const browser = await pupeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] })
 	const page    = await browser.newPage()
 
 	// go to page
@@ -48,11 +48,11 @@ const get_8002_bus_data = async (putMessageQue) => {
 
 async function putMessageQue(raw) {
 
-	console.log(raw)
-	console.log()
-	console.log(raw.realTime.busno)
-	console.log(raw.realTime.list)
-	console.log(raw.realTime.dirList)
+//	console.log(raw)
+//	console.log()
+//	console.log(raw.realTime.busno)
+//	console.log(raw.realTime.list)
+//	console.log(raw.realTime.dirList)
 	// vehicleList
 	// busno
 	// [[ '경기74아3267' ],  [ '경기74아3337' ],  [ '경기74아3348' ],  [ '경기74아3360' ],  [ '경기74아3444' ]]
